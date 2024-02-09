@@ -24,7 +24,7 @@ type PathsEnLaBase = [
             correoEnBase64: string;
         };
         path: '/CorreosQuePuedenSerAdmins/${correoEnBase64}';
-        valoresPosibles: true | null;
+        valoresPosibles: true;
     },
 ]
 ```
