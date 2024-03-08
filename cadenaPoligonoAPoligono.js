@@ -1,4 +1,4 @@
-const { cadena } = args
+const { cadena, colorDeFondoCoordenadaNoSeleccionada, indiceCoordenadaSeleccionada, colorDeFondoCoordenadaSeleccionada } = args
 
 const todosLosValores = cadena
     ? cadena.split(',').map((valor) => Number(valor))
@@ -21,9 +21,23 @@ if (coordenadas.length < 3) {
             longitude: coordenada.longitude,
         }
     })
+} else if (indiceCoordenadaSeleccionada >= 0) {
+    const coordenadaSeleccionada = coordenadas[indiceCoordenadaSeleccionada]
+    if (coordenadaSeleccionada) {
+        markers[`cs${indiceCoordenadaSeleccionada}`] = {
+            latitude: coordenadaSeleccionada.latitude,
+            longitude: coordenadaSeleccionada.longitude,
+        }
+    }
 }
 
+const listaDeCoordenadas = coordenadas.map((coordenada, indiceCoordenada) => ({
+    colorDeFondo: indiceCoordenada === indiceCoordenadaSeleccionada ? colorDeFondoCoordenadaSeleccionada : colorDeFondoCoordenadaNoSeleccionada,
+    indiceCoordenada,
+}))
+
 return {
+    listaDeCoordenadas,
     markers,
     polygons: {
         zona: {
