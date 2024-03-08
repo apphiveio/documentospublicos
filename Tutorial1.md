@@ -17,14 +17,15 @@ Se tiene una flotilla de autos con personal que los maneja y actualmente se hace
 
 ## Estructura de la base de datos en firebase
 
-```typescript
-type PathsEnLaBase = [
-    {
-        parametros: {
-            correoEnBase64: string;
-        };
-        path: '/CorreosQuePuedenSerAdmins/${correoEnBase64}';
-        valoresPosibles: true;
-    },
-]
-```
+#### /CorreosQuePuedenSerAdmins/${correoEnBase64}
+
+Permite saber si los users son o no admins
+
+#### /AdminBaseData/${correoEnBase64}
+
+Se va a guardar la informacion de el administrador
+    y contendra la foto de permil { profilePictureUrl }
+
+
+## /Zonas/${nombreZona}  { nombre: 'Zonas', params: Nombre de la zona }
+Va a ser el nombre de la zona, para poderla ver en la lista
