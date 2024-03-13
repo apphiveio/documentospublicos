@@ -1,16 +1,41 @@
-const { cadena, colorDeFondoCoordenadaNoSeleccionada, indiceCoordenadaSeleccionada, colorDeFondoCoordenadaSeleccionada } = args
+const {
+    cadena,
+    colorDeFondoCoordenadaNoSeleccionada,
+    indiceCoordenadaSeleccionada,
+    colorDeFondoCoordenadaSeleccionada,
+    todosLosPoligonos,
+    nombreZona,
+} = args
 
-const todosLosValores = cadena
-    ? cadena.split(',').map((valor) => Number(valor))
-    : []
+const crearCoordenadasDeCadena = (cadenaPoligono) => {
+    const todosLosValores = cadenaPoligono
+        ? cadenaPoligono.split(',').map((valor) => Number(valor))
+        : []
 
-const coordenadas = []
+    const coordenadas = []
 
-for (let indice = 0; indice < todosLosValores.length - 1; indice += 2) {
-    const latitude = todosLosValores[indice]
-    const longitude = todosLosValores[indice + 1]
-    coordenadas.push({ latitude, longitude })
+    for (let indice = 0; indice < todosLosValores.length - 1; indice += 2) {
+        const latitude = todosLosValores[indice]
+        const longitude = todosLosValores[indice + 1]
+        coordenadas.push({ latitude, longitude })
+    }
+
+    return coordenadas
 }
+
+const poligonosQueNoEstoyEditando = { ...(todosLosPoligonos || {}) }
+delete poligonosQueNoEstoyEditando[nombreZona]
+
+const coordenadasQueNoEstoyEditando = Object
+    .entries(poligonosQueNoEstoyEditando)
+    .map(([nombre, cadenaPoligono]) => [
+        nombre,
+        crearCoordenadasDeCadena(cadenaPoligono),
+    ])
+
+apphive.fn.callCallback('log', coordenadasQueNoEstoyEditando)
+
+const coordenadas = crearCoordenadasDeCadena(cadena)
 
 const markers = {}
 
@@ -36,12 +61,37 @@ const listaDeCoordenadas = coordenadas.map((coordenada, indiceCoordenada) => ({
     indiceCoordenada,
 }))
 
+const colorSeleccionado = {
+    type: 'custom',
+    value: '#0099FF',
+}
+
+const colorNoSeleccionado = {
+    type: 'custom',
+    value: '#D3D3D3',
+}
+
+const polygons = {
+    [nombreZona]: {
+        coordinates: coordenadas,
+        fillColor: colorSeleccionado,
+        strokeColor: colorSeleccionado,
+    },
+}
+
+coordenadasQueNoEstoyEditando.forEach(([polName, coordenadasPol]) => {
+    if (coordenadasPol.length < 1) {
+        return
+    }
+    polygons[polName] = {
+        coordinates: coordenadasPol,
+        fillColor: colorNoSeleccionado,
+        strokeColor: colorNoSeleccionado,
+    }
+})
+
 return {
     listaDeCoordenadas,
     markers,
-    polygons: {
-        zona: {
-            coordinates: coordenadas,
-        },
-    },
+    polygons,
 }
