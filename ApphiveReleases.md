@@ -16,6 +16,9 @@ La primer seccion "Cosas que saldran en siguiente release" indica lo que ya esta
 # Cosas pendientes de QA
 1. Se agrego boton para borrar los logs en una funcion en modo debug.<br /><img src="https://firebasestorage.googleapis.com/v0/b/apphive-inc.appspot.com/o/MediaReleases%2FDEVN-1718.PNG?alt=media" width="200">
 2. Se pueden enviar ahora archivos usando http request y una nueva funcion llamada creformDataCreate (solo ios y android) [Video demo](https://firebasestorage.googleapis.com/v0/b/apphive-inc.appspot.com/o/MediaReleases%2FDEVN-12486.webm?alt=media)
+3. Se agrego una validacion a la funcion "start geolocation tracking" y "start geolocation tracking http" para que si el device no tiene los permisos necesarios mande el callback de error
+4. Se agrego la funcion "localStorageDbGetDirect" que te permite leer de local storage usando el path como entry var en lugar de el dialog de local storage
+5. Se agrego la funcion "firebaseAdminGetUserByEmail" (solo disponible en cloud) que permite traer la informacion de los usuarios en firebase que tengan un correo en particular, util para determinar si un correo ya esta registrado
 
 
 # Historico
