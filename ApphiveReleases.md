@@ -28,3 +28,4 @@ La primer seccion "Cosas que saldran en siguiente release" indica lo que ya esta
 # Historico
 ## 19 Marzo 2024
 1. Se agrego la funcion "Get other user custom data" a cloud
+2. Se removio el requerimiento del merchant id en ios cuando se usa in app purchases, ya que no es necesario
