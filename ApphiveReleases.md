@@ -15,7 +15,7 @@ La primer seccion "Cosas que saldran en siguiente release" indica lo que ya esta
 
 # Cosas pendientes de QA
 1. Se agrego boton para borrar los logs en una funcion en modo debug.<br /><img src="https://firebasestorage.googleapis.com/v0/b/apphive-inc.appspot.com/o/MediaReleases%2FDEVN-1718.PNG?alt=media" width="200">
-2. Se pueden enviar ahora archivos usando http request y una nueva funcion llamada creformDataCreate (solo ios y android)<br/><video width="320" controls><source src="https://firebasestorage.googleapis.com/v0/b/apphive-inc.appspot.com/o/MediaReleases%2FDEVN-12486.webm?alt=media" type="video/webm"/></video>
+2. Se pueden enviar ahora archivos usando http request y una nueva funcion llamada creformDataCreate (solo ios y android) [Video demo](https://firebasestorage.googleapis.com/v0/b/apphive-inc.appspot.com/o/MediaReleases%2FDEVN-12486.webm?alt=media)
 
 
 # Historico
