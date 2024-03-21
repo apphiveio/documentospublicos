@@ -26,6 +26,8 @@ La primer seccion "Cosas que saldran en siguiente release" indica lo que ya esta
 
 
 # Historico
+## 21 Marzo 2024
+1. En web se agrego logica para que si llamas a la funcion start geolocation tracking te de error, esto para evitar futuros reportes ya que en web no va a estar esa funcion [Video explicando](https://firebasestorage.googleapis.com/v0/b/apphive-inc.appspot.com/o/MediaReleases%2FDEVN-12923.webm?alt=media)
 ## 19 Marzo 2024
 1. Se agrego la funcion "Get other user custom data" a cloud
 2. Se removio el requerimiento del merchant id en ios cuando se usa in app purchases, ya que no es necesario
