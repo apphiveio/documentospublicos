@@ -28,6 +28,7 @@ Nada aun
     - videoResolutionHeight
     - type
 3. Se puede renombrar un projecto dando click a la opcion del menu desplegable ademas de dando doble click al nombre <br /><img src="https://firebasestorage.googleapis.com/v0/b/apphive-inc.appspot.com/o/MediaReleases%2FDEVN-12583.png?alt=media" width="200">
+4. Se fixeo un error grave con background geolocation tracking (el que no es https) que impedia que empezara, ya lo hace [APK desde el que aplica](https://apphive-previewer-android-files.s3.amazonaws.com/PRODUCTION.1106.apk)
 ## 21 Marzo 2024
 1. En web se agrego logica para que si llamas a la funcion start geolocation tracking te de error, esto para evitar futuros reportes ya que en web no va a estar esa funcion [Video explicando](https://firebasestorage.googleapis.com/v0/b/apphive-inc.appspot.com/o/MediaReleases%2FDEVN-12923.webm?alt=media)
 ## 19 Marzo 2024
